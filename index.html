@@ -18,7 +18,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/brain.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -150,13 +150,33 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <img src="./static/images/motivation.png" alt="CFT Motivation" height="100%">
       <h2 class="subtitle has-text-centered">
         CFT steers Vision Transformers to focus on <b>semantically meaningful concepts</b> (like beaks and wings) rather than spurious background cues, significantly improving robustness to distribution shifts.
       </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="column is-10 has-text-centered">
+          <img src="./static/images/teaser.png" alt="CFT Motivation: Original vs CFT Relevance Maps" style="width: 100%; max-width: 900px;">
+          
+          <h2 class="subtitle has-text-centered mt-4">
+            Relevance maps in standard ViTs often concentrate on 
+            spurious background cues (middle). <b>CFT (right)</b> steers the model toward 
+            class-relevant, discriminative concepts like the <b>beak and wings</b> of a bird 
+            or the <b>fins</b> of a fish, significantly improving semantic alignment and robustness.
+          </h2>
+        </div>
+      </div>
     </div>
   </div>
 </section>
