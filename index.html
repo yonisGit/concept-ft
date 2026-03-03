@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Concept-Guided Fine-Tuning (CFT): Steering ViTs away from Spurious Correlations to Improve Robustness.">
+  <meta name="keywords" content="Vision Transformers, ViT, Robustness, Concept-Guided Fine-Tuning, CFT, Explainability, AttnLRP">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concept-Guided Fine-Tuning (CFT)</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Concept-Guided Fine-Tuning: Steering ViTs away from Spurious Correlations [CVPR 2026]</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Yehonatan Elisha</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Oren Barkan</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="#">Noam Koenigstein</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tel Aviv University,</span>
+            <span class="author-block"><sup>2</sup>The Open University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="YOUR_PDF_LINK"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="YOUR_ARXIV_LINK"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="YOUR_GITHUB_LINK"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="path_to_your_teaser_figure1.png" alt="CFT Motivation" height="100%">
+      <h2 class="subtitle has-text-centered">
+        CFT steers Vision Transformers to focus on <b>semantically meaningful concepts</b> (like beaks and wings) rather than spurious background cues, significantly improving robustness to distribution shifts.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision Transformers (ViTs) often fail under distribution shifts because they learn spurious correlations, such as background cues, rather than semantically meaningful features. Existing regularization methods often overlook the fine-grained semantic concepts that truly define an object. 
+          </p>
+          <p>
+            We introduce <b>Concept-Guided Fine-Tuning (CFT)</b>, a framework that optimizes a model's internal relevance maps to align with spatially-grounded concept masks. These masks are generated automatically using an LLM to propose concepts and a Vision-Language Model (GroundingSAM) to segment them. 
+          </p>
+          <p>
+            CFT requires only a minimal set of images (3 per class) and significantly enhances robustness across five out-of-distribution benchmarks (ImageNet-A, ObjectNet, etc.) while maintaining in-distribution accuracy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">How it Works</h2>
+        <div class="content has-text-justified">
+          <p>
+            The CFT pipeline consists of three automated steps:
+          </p>
+          <ul>
+            <li><b>Concept Discovery:</b> An LLM (GPT-4o-mini) proposes class-discriminative attributes (e.g., "long beak" for a bird).</li>
+            <li><b>Spatial Grounding:</b> GroundingSAM localizes these concepts in images to create dynamic guidance masks.</li>
+            <li><b>Alignment:</b> The model's AttnLRP relevance maps are optimized to match these masks, suppressing focus on the background.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="content has-text-centered">
+          <img src="path_to_figure2.png" alt="Qualitative Corrections" width="100%">
+          <p>
+            CFT corrects misclassifications by shifting the model's focus. For example, a "common newt" misclassified as a "scorpion" due to background texture is corrected when the model focuses on the animal's body.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{elisha2026cft,
+  author    = {Elisha, Yehonatan and Barkan, Oren and Koenigstein, Noam},
+  title     = {Concept-Guided Fine-Tuning: Steering ViTs away from Spurious Correlations to Improve Robustness},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. 
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
