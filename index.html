@@ -100,6 +100,27 @@
   </div>
 </section>
 
+
+
+<section class="section light-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision Transformers (ViTs) often degrade under distribution shifts because they rely on <b>spurious correlations</b>, such as background cues, rather than semantically meaningful features. Existing regularization methods fail to capture the <b>fine-grained semantic concepts</b> that define an object. 
+          </p>
+          <p>
+            We introduce <b>Concept-Guided Fine-Tuning (CFT)</b>, a framework that aligns model reasoning with spatially grounded concept masks. Our method automatically proposes class-relevant concepts using an LLM and localizes them using a VLM. We demonstrate that CFT improves robustness across <b>five OOD benchmarks</b> while maintaining in-distribution accuracy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Key Contributions</h2>
@@ -129,31 +150,13 @@
   </div>
 </section>
 
-<section class="section light-section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Vision Transformers (ViTs) often degrade under distribution shifts because they rely on <b>spurious correlations</b>, such as background cues, rather than semantically meaningful features. Existing regularization methods fail to capture the <b>fine-grained semantic concepts</b> that define an object. 
-          </p>
-          <p>
-            We introduce <b>Concept-Guided Fine-Tuning (CFT)</b>, a framework that aligns model reasoning with spatially grounded concept masks. Our method automatically proposes class-relevant concepts using an LLM and localizes them using a VLM. We demonstrate that CFT improves robustness across <b>five OOD benchmarks</b> while maintaining in-distribution accuracy.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">How CFT Works</h2>
     <div class="columns is-vcentered">
-      <div class="column is-half">
+      <!-- <div class="column is-half">
         <img src="./static/images/methodology.png" alt="Methodology Diagram" style="width:100%; border-radius:10px;">
-      </div>
+      </div> -->
       <div class="column is-half">
         <div class="content">
           <ol>
