@@ -118,10 +118,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Vision Transformers (ViTs) often degrade under distribution shifts because they rely on <b>spurious correlations</b>, such as background cues, rather than semantically meaningful features. Existing regularization methods fail to capture the <b>fine-grained semantic concepts</b> that define an object. 
+            Vision Transformers (ViTs) often fail under distribution shifts because they learn spurious correlations, such as background cues, rather than semantically meaningful features. Existing regularization methods often overlook the fine-grained semantic concepts that truly define an object. 
           </p>
           <p>
-            We introduce <b>Concept-Guided Fine-Tuning (CFT)</b>, a framework that aligns model reasoning with spatially grounded concept masks. Our method automatically proposes class-relevant concepts using an LLM and localizes them using a VLM. We demonstrate that CFT improves robustness across <b>five OOD benchmarks</b> while maintaining in-distribution accuracy.
+            We introduce <b>Concept-Guided Fine-Tuning (CFT)</b>, a framework that optimizes a model's internal relevance maps to align with spatially-grounded concept masks. These masks are generated automatically using an LLM to propose concepts and a Vision-Language Model (GroundingSAM) to segment them. 
+          </p>
+          <p>
+            CFT requires only a minimal set of images (3 per class) and significantly enhances robustness across five out-of-distribution benchmarks (ImageNet-A, ObjectNet, etc.) while maintaining in-distribution accuracy.
           </p>
         </div>
       </div>
