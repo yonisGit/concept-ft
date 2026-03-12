@@ -27,6 +27,13 @@
     .highlight { color: #3273dc; font-weight: bold; }
     .results-table { margin-top: 2rem; }
     .tag-cvpr { background-color: #3273dc; color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 20px; display: inline-block; }
+    /* עיצוב לתמונה מוקטנת */
+    .teaser-image {
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -81,8 +88,8 @@
 <section class="section light-section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
-      <div class="column is-10 has-text-centered">
-        <img src="./static/images/motivation.png" alt="CFT Motivation" style="width:100%; border-radius:10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <div class="column is-8 has-text-centered">
+        <img src="./static/images/motivation.png" alt="CFT Motivation" class="teaser-image">
         <p class="subtitle is-6 mt-4 has-text-centered">
           <b>The Problem:</b> Standard ViTs often fixate on backgrounds (middle). 
           <b>The Solution:</b> <span class="highlight">CFT</span> steers the model to focus on <span class="highlight">fine-grained semantic concepts</span> 
@@ -101,21 +108,21 @@
         <div class="method-card">
           <i class="fas fa-brain contribution-icon"></i>
           <h3 class="title is-5">Beyond Foreground Masks</h3>
-          <p>Moves past binary masks to <b>hierarchical concepts</b> (e.g., "long beak", "fins"), providing superior supervision for robustness[cite: 9, 38].</p>
+          <p>Moves past binary masks to <b>hierarchical concepts</b> (e.g., "long beak", "fins"), providing superior supervision for robustness.</p>
         </div>
       </div>
       <div class="column is-4 has-text-centered">
         <div class="method-card">
           <i class="fas fa-magic contribution-icon"></i>
           <h3 class="title is-5">Fully Automated</h3>
-          <p>Zero manual annotation. Concepts are proposed by an <b>LLM</b> and spatially grounded by a <b>VLM (GroundedSAM)</b>[cite: 13, 79].</p>
+          <p>Zero manual annotation. Concepts are proposed by an <b>LLM</b> and spatially grounded by a <b>VLM (GroundedSAM)</b>.</p>
         </div>
       </div>
       <div class="column is-4 has-text-centered">
         <div class="method-card">
           <i class="fas fa-bolt contribution-icon"></i>
           <h3 class="title is-5">Data Efficient</h3>
-          <p>Requires only a <b>minimal set of images</b> (3 per class) to achieve state-of-the-art robustness gains[cite: 46].</p>
+          <p>Requires only a <b>minimal set of images</b> (3 per class) to achieve state-of-the-art robustness gains.</p>
         </div>
       </div>
     </div>
@@ -129,10 +136,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Vision Transformers (ViTs) often degrade under distribution shifts because they rely on <b>spurious correlations</b>, such as background cues, rather than semantically meaningful features[cite: 8]. Existing regularization methods fail to capture the <b>fine-grained semantic concepts</b> that define an object[cite: 9]. 
+            Vision Transformers (ViTs) often degrade under distribution shifts because they rely on <b>spurious correlations</b>, such as background cues, rather than semantically meaningful features. Existing regularization methods fail to capture the <b>fine-grained semantic concepts</b> that define an object. 
           </p>
           <p>
-            We introduce <b>Concept-Guided Fine-Tuning (CFT)</b>, a framework that aligns model reasoning with spatially grounded concept masks. Our method automatically proposes class-relevant concepts using an LLM and localizes them using a VLM. We demonstrate that CFT improves robustness across <b>five OOD benchmarks</b> while maintaining in-distribution accuracy[cite: 16].
+            We introduce <b>Concept-Guided Fine-Tuning (CFT)</b>, a framework that aligns model reasoning with spatially grounded concept masks. Our method automatically proposes class-relevant concepts using an LLM and localizes them using a VLM. We demonstrate that CFT improves robustness across <b>five OOD benchmarks</b> while maintaining in-distribution accuracy.
           </p>
         </div>
       </div>
@@ -150,10 +157,10 @@
       <div class="column is-half">
         <div class="content">
           <ol>
-            <li><strong>Concept Discovery:</strong> An LLM (GPT-4o-mini) generates class-specific, discriminative attributes (e.g., "curved beak" for a parrot)[cite: 13, 42].</li>
-            <li><strong>Spatial Grounding:</strong> GroundedSAM localizes these concepts within training images, creating an <b>adaptive guidance mask</b>[cite: 43].</li>
-            <li><strong>Optimized Alignment:</strong> We use <b>AttnLRP</b> to compute internal relevance maps and optimize the model to align with concept regions while suppressing spurious background noise[cite: 44, 129].</li>
-            <li><strong>Consistency:</strong> A classification-consistency loss ensures the model remains a high-performance classifier[cite: 45].</li>
+            <li><strong>Concept Discovery:</strong> An LLM (GPT-4o-mini) generates class-specific, discriminative attributes (e.g., "curved beak" for a parrot).</li>
+            <li><strong>Spatial Grounding:</strong> GroundedSAM localizes these concepts within training images, creating an <b>adaptive guidance mask</b>.</li>
+            <li><strong>Optimized Alignment:</strong> We use <b>AttnLRP</b> to compute internal relevance maps and optimize the model to align with concept regions while suppressing spurious background noise.</li>
+            <li><strong>Consistency:</strong> A classification-consistency loss ensures the model remains a high-performance classifier.</li>
           </ol>
         </div>
       </div>
@@ -165,7 +172,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Empirical Robustness</h2>
     <div class="content has-text-centered">
-      <p>CFT consistently outperforms state-of-the-art baselines across real-world and synthetic shifts[cite: 204].</p>
+      <p>CFT consistently outperforms state-of-the-art baselines across real-world and synthetic shifts.</p>
       <div class="columns is-centered">
         <div class="column is-10">
           <table class="table is-striped is-fullwidth results-table">
@@ -198,7 +205,6 @@
               </tr>
             </tbody>
           </table>
-          <p class="is-size-7">Table 1: Top-1 accuracy comparison showing significant gains on OOD datasets.</p>
         </div>
       </div>
     </div>
@@ -213,7 +219,7 @@
         <img src="./static/images/qualitive.png" alt="Qualitative Examples" style="width:100%;">
         <div class="content has-text-justified mt-4">
           <p>
-            <b>Case Study:</b> On ImageNet-A, the baseline model misclassifies a "common newt" as a "scorpion" because it attends to the textured background. <b>CFT corrects this</b> by forcing the model to focus on the animal's body and semantic features, leading to the correct prediction[cite: 200, 201].
+            <b>Case Study:</b> On ImageNet-A, the baseline model misclassifies a "common newt" as a "scorpion" because it attends to the textured background. <b>CFT corrects this</b> by forcing the model to focus on the animal's body and semantic features, leading to the correct prediction.
           </p>
         </div>
       </div>
