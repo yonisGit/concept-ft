@@ -150,38 +150,25 @@
   </div>
 </section>
 
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">How CFT Works</h2>
-    <div class="columns is-vcentered">
-      <!-- <div class="column is-half">
-        <img src="./static/images/methodology.png" alt="Methodology Diagram" style="width:100%; border-radius:10px;">
-      </div> -->
-      <div class="column is-half">
-        <div class="content">
-          <ol>
-            <li><strong>Concept Discovery:</strong> An LLM (GPT-4o-mini) generates class-specific, discriminative attributes (e.g., "curved beak" for a parrot).</li>
-            <li><strong>Spatial Grounding:</strong> GroundedSAM localizes these concepts within training images, creating an <b>adaptive guidance mask</b>.</li>
-            <li><strong>Optimized Alignment:</strong> We use <b>AttnLRP</b> to compute internal relevance maps and optimize the model to align with concept regions while suppressing spurious background noise.</li>
-            <li><strong>Consistency:</strong> A classification-consistency loss ensures the model remains a high-performance classifier.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-  <section class="section">
+<section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">How it Works</h2>
     <div class="columns is-vcentered is-centered">
-      <div class="column is-7">
+      <div class="column is-10">
         <div class="content">
           <ol>
-            <li><strong>Concept Discovery:</strong> An LLM (GPT-4o-mini) proposes class-discriminative attributes, such as "long beak" for a bird, to identify key semantic features[cite: 42, 107, 193].</li>
-            <li><strong>Spatial Grounding:</strong> GroundedSAM spatially localizes these concepts within images to generate dynamic, adaptive guidance masks[cite: 43, 118, 120].</li>
-            <li><strong>Optimized Alignment:</strong> The model's AttnLRP relevance maps are optimized to align with these concept regions while simultaneously suppressing focus on spurious background cues[cite: 44, 99, 127].</li>
-            <li><strong>Consistency:</strong> A classification-consistency loss is incorporated to ensure the model's accuracy and confidence are preserved throughout the fine-tuning process[cite: 45, 131, 132].</li>
+            <li>
+              <strong>Concept Discovery:</strong> An LLM (GPT-4o-mini) proposes class-discriminative attributes, such as "long beak" for a bird, to identify key semantic features.
+            </li>
+            <li>
+              <strong>Spatial Grounding:</strong> GroundedSAM spatially localizes these concepts within images to generate dynamic, adaptive guidance masks.
+            </li>
+            <li>
+              <strong>Optimized Alignment:</strong> The model's AttnLRP relevance maps are optimized to align with these concept regions while simultaneously suppressing focus on spurious background cues.
+            </li>
+            <li>
+              <strong>Consistency:</strong> A classification-consistency loss is incorporated to ensure the model's accuracy and confidence are preserved throughout the fine-tuning process.
+            </li>
           </ol>
         </div>
       </div>
