@@ -141,22 +141,22 @@
       <div class="column is-4 has-text-centered">
         <div class="method-card">
           <i class="fas fa-brain contribution-icon"></i>
-          <h3 class="title is-5">Beyond Foreground Masks</h3>
-          <p>Moves past binary masks to <b>hierarchical concepts</b> (e.g., "long beak", "fins"), providing superior supervision for robustness.</p>
+          <h3 class="title is-5">Beyond Foreground Object Masks</h3>
+          <p>Moves past binary object masks to <b>fine-grained concepts</b> (e.g., "long beak", "fins"), providing specific supervision for robustness.</p>
         </div>
       </div>
       <div class="column is-4 has-text-centered">
         <div class="method-card">
           <i class="fas fa-magic contribution-icon"></i>
           <h3 class="title is-5">Fully Automated</h3>
-          <p>Zero manual annotation. Concepts are proposed by an <b>LLM</b> and spatially grounded by a <b>VLM (GroundedSAM)</b>.</p>
+          <p>Zero manual annotation. Concepts are proposed by an <b>LLM</b> and spatially grounded by a <b>VLM</b>.</p>
         </div>
       </div>
       <div class="column is-4 has-text-centered">
         <div class="method-card">
           <i class="fas fa-bolt contribution-icon"></i>
-          <h3 class="title is-5">Data Efficient</h3>
-          <p>Requires only a <b>minimal set of images</b> (3 per class) to achieve state-of-the-art robustness gains.</p>
+          <h3 class="title is-5">Training Efficiency</h3>
+          <p>Requires only a <b>minimal set of images</b> (3 per class from half of the classes) to achieve state-of-the-art robustness gains.</p>
         </div>
       </div>
     </div>
@@ -171,13 +171,13 @@
         <div class="content">
           <ol>
             <li>
-              <strong>Concept Discovery:</strong> An LLM (GPT-4o-mini) proposes class-discriminative attributes, such as "long beak" for a bird, to identify key semantic features.
+              <strong>Concept Discovery:</strong> An LLM proposes class-discriminative attributes, such as "long beak" for a bird, to identify key semantic features.
             </li>
             <li>
               <strong>Spatial Grounding:</strong> GroundedSAM spatially localizes these concepts within images to generate dynamic, adaptive guidance masks.
             </li>
             <li>
-              <strong>Semantic Alignment:</strong> The model's AttnLRP relevance maps are optimized to align with these concept regions while simultaneously suppressing focus on spurious background cues.
+              <strong>Semantic Alignment:</strong> The model's LRP (fulfills conservation) relevance maps are optimized to align with these concept regions while simultaneously suppressing focus on spurious background cues.
             </li>
             <!-- <li>
               <strong>Classification Consistency:</strong> A classification-consistency loss is incorporated to ensure the model's accuracy and confidence are preserved throughout the fine-tuning process.
